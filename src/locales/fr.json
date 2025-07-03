@@ -20,7 +20,7 @@
   },
   "conception": {
     "title": "NOTRE TRAVAIL DE CONCEPTION",
-    "description": "Sélectionnez un module ci-contre pour en apprendre plus sur chaque aspect de notre projet : dessins techniques, schémas électriques, informations techniques, matériaux...",
+    "description": "Sélectionnez un des modules suivants pour en apprendre plus sur chaque aspect de notre projet : dessins techniques, schémas électriques, informations techniques, matériaux... Ces modules sont organisés selon les trois avancées majeures dans notre travail de conception : le prototype initial créé en suivant un tutoriel pour prendre en main sereinement les outils qui nous serviront pour les prototypes à venir. Le prototype final a été developpé pour améliorer le prototype initial via l'ajout d'une carte électronique et d'une batterie pour assurer l'autonomie du prototype. Enfin, nous exposerons le prototype optimisé marqué par une transmission mécanique différente des deux premiers prototypes, par l'usage d'un train épicycloïdal",
     "prototypeInitialTitle": "Prototype initial",
     "prototypeFinalTitle": "Prototype final",
     "prototypeOptimiseTitle": "Prototype optimisé",

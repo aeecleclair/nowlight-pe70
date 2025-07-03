@@ -978,7 +978,6 @@ textarea:focus {
 
 /* --- Eco Mode Specific Styles --- */
 .eco-mode { --transition-speed: 0s !important; }
-.eco-mode * { animation-duration: 0s !important; animation-delay: 0s !important; transition-duration: 0s !important; }
 .eco-mode .hero-section, .eco-mode .ambition-section, .eco-mode .conception-section, .eco-mode .engagements-section, .eco-mode .contact-section { animation: none !important; background-attachment: scroll !important; }
 .eco-mode .subtitle, .eco-mode .title, .eco-mode .scroll-indicator { opacity: 1 !important; animation: none !important; }
 .eco-mode .arrow-down { animation: none !important; }
@@ -986,4 +985,13 @@ textarea:focus {
 .eco-mode .module-image { background-image: none !important; border: 1px dashed var(--border-color); }
 .eco-mode .engagement-icon { background-color: #555; color: #ccc; }
 .eco-mode .eco-placeholder-media { display: flex; }
+/* Remove animations but keep interactivity */
+.eco-mode *:not(button):not(a):not([role="button"]):not([tabindex]) { 
+  animation-duration: 0s !important; 
+  animation-delay: 0s !important; 
+}
+/* Keep minimal transitions for interactive elements */
+.eco-mode button, .eco-mode a, .eco-mode [role="button"], .eco-mode [tabindex] {
+  transition: opacity 0.1s ease, transform 0.1s ease !important;
+}
 </style>
