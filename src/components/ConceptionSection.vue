@@ -9,7 +9,8 @@
 
           <div class="modules-grid" :class="{ 
             'two-items': section.moduleKeys.length === 2,
-            'four-items': section.moduleKeys.length === 4
+            'four-items': section.moduleKeys.length === 4,
+            'one-item': section.moduleKeys.length === 1
           }">
             <template v-for="moduleKey in section.moduleKeys" :key="moduleKey">
 
@@ -33,7 +34,7 @@
                 <h3 class="module-title">{{ t(`modules.${moduleKey}.title`) }}</h3>
               </div>
 
-              <!-- Clickable Module -->
+              <!-- Clickable Module (fonctionne en mode éco et normal) -->
               <div
                   v-else
                   class="module-item clickable"
@@ -132,7 +133,7 @@ const selectedImage = ref(null);
 const sections = ref([
   {
     titleKey: 'conception.prototypeInitialTitle',
-    moduleKeys: ['initialVideo', 'initialElectric', 'manufacturing', 'initialMecanic']
+    moduleKeys: ['initialElectric', 'manufacturing', 'initialMecanic']
   },
   {
     titleKey: 'conception.prototypeFinalTitle',
@@ -140,7 +141,7 @@ const sections = ref([
   },
   {
     titleKey: 'conception.prototypeOptimiseTitle',
-    moduleKeys: ['optimizedElectric', 'optimizedMecanic']
+    moduleKeys: ['optimizedMecanic']
   }
 ]);
 
@@ -284,12 +285,10 @@ const getModuleImageUrl = (key) => {
     'initialElectric': 'module-initialElectric.jpg',
     'finalElectric': 'module-finalElectric.jpg',
     'initialMecanic': 'module-initialMecanic.jpg',
-    'optimizedMecanic': 'module-optimizedMecanic.jpg',
     'generationSystem': 'module-generationSystem.jpg',
     'manufacturing': 'module-manufacturing.jpg',
     'performanceTests': 'module-performanceTests.jpg',
-    'optimizedElectric': 'module-optimizedElectric.jpg',
-    'finalMecanic': 'module-finalMecanic.jpg',
+    'optimizedMecanic': 'module-optimizedMecanic.jpg',
   };
 
   try {
@@ -400,6 +399,12 @@ const closeImageModal = () => {
   max-width: 900px;
   margin: 0 auto;
   gap: 25px;
+}
+
+/* Nouvelle classe pour un seul module - maintient une taille cohérente */
+.modules-grid.one-item {
+  grid-template-columns: minmax(280px, 400px);
+  justify-content: center;
 }
 
 .module-item {
@@ -775,6 +780,12 @@ const closeImageModal = () => {
     height: 180px;
   }
   
+  /* Module unique sur mobile */
+  .modules-grid.one-item {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+  }
+  
   .image-gallery {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 10px;
@@ -801,6 +812,9 @@ const closeImageModal = () => {
     grid-template-columns: 1fr;
   }
   .modules-grid.four-items {
+    grid-template-columns: 1fr;
+  }
+  .modules-grid.one-item {
     grid-template-columns: 1fr;
   }
 }
