@@ -164,7 +164,7 @@
               <div class="media-content">
                 <div class="contact-image-container" v-if="!ecoMode">
                   <img 
-                    src="@/assets/images/contact-image.png" 
+                    src="@/assets/images/contact-image.jpg" 
                     alt="Contact NowLight"
                     class="contact-image"
                   />
@@ -435,7 +435,7 @@ img, iframe { max-width: 100%; height: auto; display: block; }
   height: 100vh; min-height: 600px;
   background-color: var(--primary-color);
   /* Reference image from assets */
-  background-image: url('@/assets/images/hero-background.png');
+  background-image: url('@/assets/images/hero-background.jpg');
   background-size: cover; background-position: center center; background-attachment: fixed;
   position: relative; display: flex; flex-direction: column; justify-content: center; align-items: center;
   color: var(--text-white); text-align: center; overflow: hidden;
