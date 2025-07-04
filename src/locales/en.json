@@ -20,7 +20,7 @@
   },
   "conception": {
     "title": "OUR DESIGN WORK",
-    "description": "Select a module below to learn more about each aspect of our project: technical drawings, electrical diagrams, technical information, materials...",
+    "description": "Select one of the following modules to learn more about each aspect of our project: technical drawings, electrical diagrams, technical information, materials... These modules are organized according to the three major advances in our design work: the initial prototype created by following a tutorial to calmly take control of the tools that will be used for future prototypes. The final prototype was developed to improve the initial prototype by adding an electronic card and a battery to ensure the autonomy of the prototype. Finally, we will present the optimized prototype marked by a mechanical transmission different from the first two prototypes, by the use of an epicyclic train",
     "prototypeInitialTitle": "Initial Prototype",
     "prototypeFinalTitle": "Final Prototype",
     "prototypeOptimiseTitle": "Optimized Prototype",
