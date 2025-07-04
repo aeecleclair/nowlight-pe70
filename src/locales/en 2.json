@@ -49,6 +49,7 @@
     "email": "EMAIL",
     "phone": "PHONE NUMBER",
     "address": "LOCATION",
+    "team": "Project Team",
     "formTitle": "Send us a message",
     "form": {
       "name": "Name",
