@@ -49,6 +49,7 @@
     "email": "E-MAIL",
     "phone": "NUMÉRO DE TÉLÉPHONE",
     "address": "LOCAUX",
+    "team": "Équipe du projet",
     "formTitle": "Envoyez-nous un message",
     "form": {
       "name": "Nom",
@@ -93,7 +94,7 @@
     },
     "finalElectric": { 
       "title": "Électronique", 
-      "description": "Nous avons récupéré la partie électronique d’une lampe dynamo rechargeable. Cette lampe à dynamo comprend un moteur triphasé (MSAP). En entrée de la carte électronique nous trouvons un pont redresseur triphasé. Par souci de simplicité, on accorde le moteur à courant continu directement à l’entrée du redresseur triphasé, sur deux des trois phases. On peut aussi réutiliser le circuit électronique avec le moteur adapté à nos besoins.",
+      "description": "Nous avons récupéré la partie électronique d'une lampe dynamo rechargeable. Cette lampe à dynamo comprend un moteur triphasé (MSAP). En entrée de la carte électronique nous trouvons un pont redresseur triphasé. Par souci de simplicité, on accorde le moteur à courant continu directement à l'entrée du redresseur triphasé, sur deux des trois phases. On peut aussi réutiliser le circuit électronique avec le moteur adapté à nos besoins.",
       "images": [
         "module-finalElectric-1.png",
         "module-finalElectric-2.png",
