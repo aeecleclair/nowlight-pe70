@@ -1,12 +1,54 @@
-import { createApp } from 'vue';
-import App from './App.vue';
-import i18n from './i18n'; // Import the i18n instance
+import { createApp } from 'vue'
+import { createPinia } from 'pinia'
+import { createRouter, createWebHistory } from 'vue-router'
+import App from './App.vue'
+import LanguageSelection from './views/LanguageSelection.vue'
+import Home from './views/Home.vue'
+import './style.css'
 
-import '@fortawesome/fontawesome-free/css/all.css';
+const routes = [
+  {
+    path: '/',
+    name: 'LanguageSelection',
+    component: LanguageSelection,
+    beforeEnter: (to, from, next) => {
+      // Vérifier si une langue est déjà sélectionnée
+      const savedLang = localStorage.getItem('nowlight-language')
+      if (savedLang) {
+        next('/home')
+      } else {
+        next()
+      }
+    }
+  },
+  {
+    path: '/home',
+    name: 'Home',
+    component: Home
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    redirect: '/'
+  }
+]
 
-const app = createApp(App);
+const router = createRouter({
+  history: createWebHistory(),
+  routes,
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    } else if (to.hash) {
+      return { el: to.hash, behavior: 'smooth' }
+    } else {
+      return { top: 0 }
+    }
+  }
+})
 
-app.use(i18n);
-console.log("i18n messages loaded:", i18n.global.messages.value);
+const pinia = createPinia()
+const app = createApp(App)
 
-app.mount('#app');
+app.use(pinia)
+app.use(router)
+app.mount('#app')

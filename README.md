@@ -1,112 +1,199 @@
-# README - Projet NowLight PE 76
+# NowLight Website
 
-## Présentation
+Un site web moderne pour le projet NowLight, développé avec Vue.js 3, Tailwind CSS et Vite.
 
-Ce site permet de présenter notre projet de PE 76 sur la NowLight
+## 🚀 Installation
 
-## Technologies Utilisées 🛠️
+### Prérequis
+- Node.js 18+ 
+- npm ou yarn
 
-* **Vue.js 3 (Composition API)** - Framework JavaScript pour l'interface utilisateur
-* **Vite** - Outil de build et serveur de développement
-* **Vue-i18n** - Gestion des traductions (FR/EN)
-* **CSS** - Styles définis dans `App.vue`
-* **Font Awesome** - Bibliothèque d'icônes
-
-## Prérequis
-
-* Node.js (v16+)
-* npm ou yarn
-
-## Installation 🚀
-
-1. **Cloner le dépôt :**
-   ```bash
-   git clone <url-du-repo>
-   cd <nom-du-dossier>
-   ```
-
-2. **Installer les dépendances :**
-   ```bash
-   npm install
-   # ou
-   yarn install
-   ```
-
-3. **Lancer le serveur de développement :**
-   ```bash
-   npm run dev
-   # ou
-   yarn dev
-   ```
-
-4. Ouvrir votre navigateur à l'adresse indiquée (`http://localhost:5173/`)
-
-## Production 📦
-
-Pour compiler le projet pour la production :
+### Étapes d'installation
 
 ```bash
-npm run build
-# ou
-yarn build
+# 1. Cloner ou télécharger le projet
+git clone <your-repo> nowlight-website
+cd nowlight-website
+
+# 2. Installer les dépendances
+npm install
+
+# 3. Copier vos fichiers de traduction
+# Remplacez src/locales/fr.json par votre fichier fr.json complet
+# Remplacez src/locales/en.json par votre fichier en.json complet
+
+# 4. Ajouter vos images
+# Copiez toutes vos images dans src/assets/images/
+
+# 5. Démarrer le serveur de développement
+npm run dev
 ```
 
-Les fichiers optimisés seront générés dans le dossier `dist/`.
+Le site sera accessible sur `http://localhost:5173`
 
-## Structure du Projet 📁
+## 🏗️ Architecture
 
 ```
-.
-├── public/             # Fichiers statiques (favicon, index.html base)
-├── src/
-│   ├── assets/         # Ressources (images, styles globaux)
-│   │   └── images/     # Images utilisées dans les composants
-│   ├── locales/        # Fichiers de traduction JSON
-│   │   ├── en.json     # Traductions anglaises
-│   │   └── fr.json     # Traductions françaises
-│   ├── App.vue         # Composant principal
-│   ├── i18n.js         # Configuration de Vue-i18n
-│   └── main.js         # Point d'entrée de l'application
-├── .gitignore
-├── index.html          # Template HTML principal
-├── package.json        # Dépendances et scripts
-└── README.md
+src/
+├── main.js                 # Point d'entrée de l'application
+├── App.vue                 # Composant racine
+├── style.css               # Styles globaux avec Tailwind
+├── views/                  # Pages principales
+│   ├── LanguageSelection.vue
+│   └── Home.vue
+├── components/
+│   ├── common/             # Composants réutilisables
+│   │   ├── Navigation.vue
+│   │   ├── ModuleCard.vue
+│   │   └── Footer.vue
+│   ├── sections/           # Sections de la page d'accueil
+│   │   ├── HeroSection.vue
+│   │   ├── AmbitionSection.vue
+│   │   ├── ConceptionSection.vue
+│   │   ├── EngagementsSection.vue
+│   │   └── ContactSection.vue
+│   └── modals/             # Modales
+│       └── ModuleModal.vue
+├── stores/                 # État global (Pinia)
+│   └── language.js
+├── locales/                # Fichiers de traduction
+│   ├── fr.json
+│   └── en.json
+└── assets/                 # Ressources statiques
+    └── images/
 ```
 
+## 🌐 Fonctionnalités
 
-### Gestion des Images
+### ✅ Implémentées
+- Interface multilingue (FR/EN) avec sélection au démarrage
+- Design responsive et moderne
+- Navigation fluide avec scroll smooth
+- Section Hero avec toggle mode éco/standard
+- Section Ambition avec animations
+- Section Conception avec modules cliquables
+- Section Engagements avec icônes animées
+- Section Contact avec formulaire fonctionnel
+- Modales pour afficher les détails des modules
+- Support vidéos YouTube intégrées
+- Galerie d'images avec navigation
+- Footer complet avec liens sociaux
+- Animations et effets visuels modernes
 
-1. **Stockage** : Placez les nouvelles images dans `src/assets/images/`
-2. **Convention de nommage** : Respectez le format `section-identifiant.jpg` (ex: `module-technicalDrawing.jpg`, `contact-campus.jpg`)
-3. **Utilisation** :
-   - Dans le template HTML :
-     ```html
-     <img src="@/assets/images/nom-image.jpg" alt="Description">
-     ```
-   - Dans le CSS :
-     ```css
-     background-image: url('@/assets/images/nom-image.jpg');
-     ```
-   - Images dynamiques : Le code utilise une fonction `getModuleImageUrl()` qui construit le chemin selon la clé du module
+### 🎨 Design
+- Palette de couleurs orange/bleu/noir
+- Effets de glassmorphism et backdrop-blur
+- Animations CSS fluides
+- Gradients et effets de lumière
+- Design dark/light selon les sections
+- Micro-interactions sur hover
 
-### Modification des Textes
+### 📱 Responsive
+- Mobile First approach
+- Breakpoints: mobile, tablet, desktop
+- Navigation mobile avec hamburger menu
+- Modales optimisées pour mobile
+- Images adaptatives
 
-1. Ouvrez les fichiers `src/locales/en.json` et `src/locales/fr.json`
-2. Localisez la clé correspondant au texte à modifier (ex: `nav.ambition`, `contact.form.submit`)
-3. Modifiez la valeur dans les deux fichiers pour maintenir la cohérence des traductions
+## 🛠️ Scripts disponibles
 
-### Bonnes Pratiques
+```bash
+# Développement
+npm run dev          # Serveur de développement
 
-- Testez vos modifications sur différentes tailles d'écran pour assurer la responsivité
-- Vérifiez que vos changements fonctionnent dans les deux langues (FR/EN)
-- Utilisez les outils de développement de Vue pour déboguer (`Vue Devtools`)
+# Production
+npm run build        # Build pour production
+npm run preview      # Prévisualiser le build
 
-## Déploiement
+# Docker
+docker build -t nowlight-website .
+docker run -p 80:80 nowlight-website
+```
 
-Après compilation (`npm run build`), les fichiers du dossier `dist/` peuvent être déployés sur n'importe quel serveur web statique.
+## 📁 Fichiers importants à personnaliser
 
-## Ressources Utiles
+### 1. Traductions (OBLIGATOIRE)
+```bash
+src/locales/fr.json  # Remplacer par votre fichier fr.json complet
+src/locales/en.json  # Remplacer par votre fichier en.json complet
+```
 
-- [Documentation Vue.js 3](https://v3.vuejs.org/)
-- [Documentation Vite](https://vitejs.dev/guide/)
-- [Documentation Vue-i18n](https://vue-i18n.intlify.dev/)
+### 2. Images (OBLIGATOIRE)
+```bash
+src/assets/images/   # Ajouter toutes vos images de modules
+```
+
+### 3. Configuration
+```bash
+src/stores/language.js       # Configuration des langues
+src/components/sections/     # Personnaliser le contenu des sections
+```
+
+## 🔧 Personnalisation
+
+### Couleurs
+Modifiez `tailwind.config.js` pour changer la palette :
+```javascript
+colors: {
+  'nowlight': {
+    'orange': { /* vos couleurs */ }
+  }
+}
+```
+
+### Contenu
+- Modifiez les fichiers dans `src/components/sections/` pour le contenu
+- Ajustez `src/stores/language.js` pour la gestion des langues
+- Personnalisez `src/components/modals/ModuleModal.vue` pour l'affichage des modules
+
+### Images
+- Placez toutes vos images dans `src/assets/images/`
+- Les noms doivent correspondre à ceux dans vos fichiers JSON
+- Formats supportés: JPG, PNG, SVG
+
+## 🐳 Déploiement Docker
+
+Le projet inclut un Dockerfile optimisé pour la production :
+
+```bash
+# Build
+docker build -t nowlight-website .
+
+# Run
+docker run -p 80:80 nowlight-website
+```
+
+### Via Git (recommandé)
+```bash
+# Sur votre serveur
+git clone <your-repo>
+cd nowlight-website
+docker build -t nowlight-website .
+docker run -d -p 80:80 --name nowlight nowlight-website
+```
+
+## 🤝 Développement
+
+### Structure des composants
+- Utilisez la Composition API de Vue 3
+- Styles avec Tailwind CSS uniquement
+- Store Pinia pour l'état global
+- Vue Router pour la navigation
+
+### Conventions
+- Noms de composants en PascalCase
+- Props avec validation TypeScript-style
+- Émission d'événements explicites
+- Code commenté en français
+
+## 📞 Support
+
+Pour toute question technique :
+- Vérifiez que Node.js 18+ est installé
+- Vérifiez que les fichiers de traduction sont corrects
+- Vérifiez que les images sont dans le bon dossier
+- Consultez la console du navigateur pour les erreurs
+
+## 📝 Licence
+
+© 2025 NowLight. Tous droits réservés.
