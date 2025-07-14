@@ -11,57 +11,82 @@ Un site web moderne pour le projet NowLight, développé avec Vue.js 3, Tailwind
 ### Étapes d'installation
 
 ```bash
-# 1. Cloner ou télécharger le projet
-git clone <your-repo> nowlight-website
+# 1. Cloner le projet
+git clone https://github.com/Kadzzzzz/nowlight-website.git
 cd nowlight-website
 
 # 2. Installer les dépendances
 npm install
 
-# 3. Copier vos fichiers de traduction
-# Remplacez src/locales/fr.json par votre fichier fr.json complet
-# Remplacez src/locales/en.json par votre fichier en.json complet
-
-# 4. Ajouter vos images
-# Copiez toutes vos images dans src/assets/images/
-
-# 5. Démarrer le serveur de développement
+# 3. Démarrer le serveur de développement
 npm run dev
 ```
 
 Le site sera accessible sur `http://localhost:5173`
 
-## 🏗️ Architecture
+## 🏗️ Structure du projet
 
 ```
-src/
-├── main.js                 # Point d'entrée de l'application
-├── App.vue                 # Composant racine
-├── style.css               # Styles globaux avec Tailwind
-├── views/                  # Pages principales
-│   ├── LanguageSelection.vue
-│   └── Home.vue
-├── components/
-│   ├── common/             # Composants réutilisables
-│   │   ├── Navigation.vue
-│   │   ├── ModuleCard.vue
-│   │   └── Footer.vue
-│   ├── sections/           # Sections de la page d'accueil
-│   │   ├── HeroSection.vue
-│   │   ├── AmbitionSection.vue
-│   │   ├── ConceptionSection.vue
-│   │   ├── EngagementsSection.vue
-│   │   └── ContactSection.vue
-│   └── modals/             # Modales
-│       └── ModuleModal.vue
-├── stores/                 # État global (Pinia)
-│   └── language.js
-├── locales/                # Fichiers de traduction
-│   ├── fr.json
-│   └── en.json
-└── assets/                 # Ressources statiques
-    └── images/
+.
+├── Dockerfile                          # Configuration Docker pour le déploiement
+├── generate_project.py                 # Script de génération/setup du projet
+├── index.html                          # Point d'entrée HTML principal
+├── package.json                        # Dépendances et scripts npm
+├── package-lock.json                   # Verrouillage des versions de dépendances
+├── postcss.config.js                   # Configuration PostCSS pour Tailwind
+├── public/                             # Fichiers statiques publics
+│   ├── favicon-modern-2.ico           # Icône du site (version 2)
+│   ├── favicon-modern.ico             # Icône du site principale
+│   ├── robots.txt                     # Instructions pour les robots d'indexation
+│   └── sitemap.xml                    # Plan du site pour le SEO
+├── README.md                          # Documentation du projet
+├── src/                               # Code source principal
+│   ├── App.vue                        # Composant racine de l'application
+│   ├── assets/                        # Ressources statiques
+│   │   └── images/                    # Images du projet
+│   │       ├── ambition-image.jpg     # Image de la section ambition
+│   │       ├── contact-campus*.jpg    # Images du campus pour la section contact
+│   │       ├── contact-image.*        # Images de la section contact
+│   │       ├── hero-background.*      # Images de fond pour la section hero
+│   │       ├── module-finalElectric-* # Images du module électronique final
+│   │       ├── module-initialElectric-* # Images du module électronique initial
+│   │       ├── module-initialMecanic-* # Images du module mécanique initial
+│   │       └── module-optimizedMecanic-* # Images du module mécanique optimisé
+│   ├── components/                    # Composants Vue réutilisables
+│   │   ├── common/                    # Composants communs
+│   │   │   ├── Footer.vue             # Pied de page
+│   │   │   ├── ModuleCard.vue         # Carte d'affichage des modules
+│   │   │   └── Navigation.vue         # Barre de navigation
+│   │   ├── modals/                    # Composants modaux
+│   │   │   └── ModuleModal.vue        # Modal d'affichage des détails de module
+│   │   └── sections/                  # Sections de la page d'accueil
+│   │       ├── AmbitionSection.vue    # Section "Notre ambition"
+│   │       ├── ConceptionSection.vue  # Section "Conception" avec les modules
+│   │       ├── ContactSection.vue     # Section "Contact"
+│   │       ├── EngagementsSection.vue # Section "Nos engagements"
+│   │       └── HeroSection.vue        # Section hero avec titre principal
+│   ├── locales/                       # Fichiers de traduction
+│   │   ├── en.json                    # Traductions anglaises
+│   │   └── fr.json                    # Traductions françaises
+│   ├── main.js                        # Point d'entrée JavaScript principal
+│   ├── stores/                        # Stores Pinia pour la gestion d'état
+│   │   └── language.js                # Store pour la gestion des langues
+│   ├── style.css                      # Styles CSS globaux et Tailwind imports
+│   └── views/                         # Vues/Pages principales
+│       ├── Home.vue                   # Page d'accueil principale
+│       └── LanguageSelection.vue      # Page de sélection de langue
+├── tailwind.config.js                 # Configuration Tailwind CSS
+└── vite.config.js                     # Configuration du bundler Vite
 ```
+
+## 🔧 Technologies utilisées
+
+- **Vue.js 3** - Framework JavaScript réactif
+- **Vite** - Build tool et serveur de développement
+- **Tailwind CSS** - Framework CSS utilitaire
+- **Pinia** - Gestion d'état pour Vue
+- **Vue Router** - Routage côté client
+- **PostCSS** - Traitement CSS
 
 ## 🌐 Fonctionnalités
 
@@ -71,129 +96,98 @@ src/
 - Navigation fluide avec scroll smooth
 - Section Hero avec toggle mode éco/standard
 - Section Ambition avec animations
-- Section Conception avec modules cliquables
+- Section Conception avec modules cliquables et détaillés
 - Section Engagements avec icônes animées
-- Section Contact avec formulaire fonctionnel
-- Modales pour afficher les détails des modules
+- Section Contact avec informations complètes
+- Modales interactives pour afficher les détails des modules
 - Support vidéos YouTube intégrées
-- Galerie d'images avec navigation
-- Footer complet avec liens sociaux
+- Galerie d'images avec navigation et zoom
+- Footer complet avec liens sociaux (LinkedIn, GitHub)
 - Animations et effets visuels modernes
 
 ### 🎨 Design
-- Palette de couleurs orange/bleu/noir
+- Palette de couleurs orange/noir moderne
 - Effets de glassmorphism et backdrop-blur
 - Animations CSS fluides
 - Gradients et effets de lumière
-- Design dark/light selon les sections
+- Design adaptatif selon les sections
 - Micro-interactions sur hover
 
 ### 📱 Responsive
 - Mobile First approach
-- Breakpoints: mobile, tablet, desktop
-- Navigation mobile avec hamburger menu
-- Modales optimisées pour mobile
-- Images adaptatives
+- Breakpoints optimisés : mobile, tablet, desktop
+- Navigation mobile avec menu hamburger
+- Modales adaptées pour mobile
+- Images et contenus adaptatifs
 
 ## 🛠️ Scripts disponibles
 
 ```bash
 # Développement
-npm run dev          # Serveur de développement
+npm run dev          # Serveur de développement avec hot-reload
 
 # Production
-npm run build        # Build pour production
-npm run preview      # Prévisualiser le build
+npm run build        # Build optimisé pour production
+npm run preview      # Prévisualiser le build de production
 
 # Docker
 docker build -t nowlight-website .
 docker run -p 80:80 nowlight-website
 ```
 
-## 📁 Fichiers importants à personnaliser
+## ✏️ Personnalisation du contenu
 
-### 1. Traductions (OBLIGATOIRE)
-```bash
-src/locales/fr.json  # Remplacer par votre fichier fr.json complet
-src/locales/en.json  # Remplacer par votre fichier en.json complet
-```
+### Modifier les textes des modules
+Les contenus des modules se trouvent dans les fichiers de traduction :
 
-### 2. Images (OBLIGATOIRE)
-```bash
-src/assets/images/   # Ajouter toutes vos images de modules
-```
+**Pour le français :** `src/locales/fr.json`
+**Pour l'anglais :** `src/locales/en.json`
 
-### 3. Configuration
-```bash
-src/stores/language.js       # Configuration des langues
-src/components/sections/     # Personnaliser le contenu des sections
-```
-
-## 🔧 Personnalisation
-
-### Couleurs
-Modifiez `tailwind.config.js` pour changer la palette :
-```javascript
-colors: {
-  'nowlight': {
-    'orange': { /* vos couleurs */ }
+Structure dans le JSON :
+```json
+{
+  "modules": {
+    "initialElectric": {
+      "title": "Électronique",
+      "description": "Description avec syntaxe markdown...",
+      "images": ["image1.jpg", "image2.png"]
+    }
   }
 }
 ```
 
-### Contenu
-- Modifiez les fichiers dans `src/components/sections/` pour le contenu
-- Ajustez `src/stores/language.js` pour la gestion des langues
-- Personnalisez `src/components/modals/ModuleModal.vue` pour l'affichage des modules
+Syntaxe supportée dans les descriptions :
+- **Titres** : `## Mon Titre` ou `### Sous-titre`
+- **Gras** : `**texte en gras**`
+- **Listes** : `• Point de liste`
+- **Références d'images cliquables** : `[Img:1, Txt:"Figure 1"]`
+- **Liens** : `***https://mon-lien.com***`
+- **Saut de ligne** : `\n\n`
 
-### Images
-- Placez toutes vos images dans `src/assets/images/`
-- Les noms doivent correspondre à ceux dans vos fichiers JSON
-- Formats supportés: JPG, PNG, SVG
+### Ajouter des images
+Placez vos images dans `src/assets/images/` et référencez-les dans les fichiers JSON avec leur nom exact.
 
-## 🐳 Déploiement Docker
+### Modifier les informations de contact
+Éditez les fichiers :
+- `src/components/sections/ContactSection.vue`
+- `src/components/common/Footer.vue`
 
-Le projet inclut un Dockerfile optimisé pour la production :
+## 🎯 Fonctionnalités avancées
 
-```bash
-# Build
-docker build -t nowlight-website .
+### Mode Éco
+- Désactive les animations coûteuses
+- Remplace les images par des placeholders
+- Optimise les performances
 
-# Run
-docker run -p 80:80 nowlight-website
-```
+### Modules interactifs
+- Navigation par images numérotées
+- Références cliquables dans le texte
+- Support vidéo YouTube intégré
+- Zoom et navigation dans les galeries
 
-### Via Git (recommandé)
-```bash
-# Sur votre serveur
-git clone <your-repo>
-cd nowlight-website
-docker build -t nowlight-website .
-docker run -d -p 80:80 --name nowlight nowlight-website
-```
+### Internationalisation
+- Commutation de langue en temps réel
+- Persistance du choix de langue
+- URLs et métadonnées adaptées
 
-## 🤝 Développement
-
-### Structure des composants
-- Utilisez la Composition API de Vue 3
-- Styles avec Tailwind CSS uniquement
-- Store Pinia pour l'état global
-- Vue Router pour la navigation
-
-### Conventions
-- Noms de composants en PascalCase
-- Props avec validation TypeScript-style
-- Émission d'événements explicites
-- Code commenté en français
-
-## 📞 Support
-
-Pour toute question technique :
-- Vérifiez que Node.js 18+ est installé
-- Vérifiez que les fichiers de traduction sont corrects
-- Vérifiez que les images sont dans le bon dossier
-- Consultez la console du navigateur pour les erreurs
-
-## 📝 Licence
-
-© 2025 NowLight. Tous droits réservés.
+*Projet d'étude - NowLight 2025*
