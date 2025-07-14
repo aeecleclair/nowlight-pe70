@@ -1,31 +1,16 @@
 <!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/x-icon" href="/favicon-modern.ico" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NowLight - Sustainable Lighting Project</title>
-  <meta name="description" content="NowLight - Une solution d'éclairage durable utilisant l'énergie humaine pour générer de la lumière instantanément." />
-
-  <!-- Script pour rediriger les 404 vers index.html -->
-  <script>
-    // Stocker le chemin demandé
-    sessionStorage.redirect = location.href;
-  </script>
-</head>
-<body>
-  <div id="app"></div>
-  <script type="module" src="/src/main.js"></script>
-
-  <!-- Script pour restaurer le chemin après redirection -->
-  <script>
-    (function(){
-      var redirect = sessionStorage.redirect;
-      delete sessionStorage.redirect;
-      if (redirect && redirect != location.href) {
-        history.replaceState(null, null, redirect);
-      }
-    })();
-  </script>
-</body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NowLight - Sustainable Lighting Solution</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
 </html>
