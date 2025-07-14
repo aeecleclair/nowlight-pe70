@@ -58,7 +58,7 @@
                 @click="openImageViewer(index)"
               >
                 <img
-                  :src="`/src/assets/images/${image}`"
+                  :src="`/images/${image}`"
                   :alt="`${module.title} - Image ${index + 1}`"
                   class="w-full h-48 object-cover"
                   @error="handleImageError"
@@ -112,7 +112,7 @@
     <div v-if="selectedImageIndex !== null" class="absolute inset-0 bg-black/90 flex items-center justify-center z-10" @click.stop="closeImageViewer">
       <div class="relative w-full h-full p-8 flex items-center justify-center">
         <img
-          :src="`/src/assets/images/${module.images[selectedImageIndex]}`"
+          :src="`/images/${module.images[selectedImageIndex]}`"
           :alt="`${module.title} - Image ${selectedImageIndex + 1}`"
           class="max-w-[90%] max-h-[90%] object-contain"
           @click.stop
